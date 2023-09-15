@@ -1,0 +1,45 @@
+<div class="mx-auto formContainer login my-5 p-5">
+    <h3 class="text-center">Login</h3>
+    <form (ngSubmit)="applyLogin(LoginForm.value)" [formGroup]="LoginForm"  class="loginForm p-3">
+       
+        <div class="mx-auto px-3">
+            <div class="inputContainer">
+                <input formControlName="email" type="text" class="form-control" placeholder="Your Email">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div *ngIf="LoginForm.get('email')?.errors&&
+        LoginForm.get('email')?.touched" class="my-3 alert alert-danger">
+                <p *ngIf="LoginForm.get('email')?.errors?.['required']"><i class="fa-solid fa-xmark"></i> Email is required!</p>
+                <p *ngIf="LoginForm.get('email')?.errors?.['pattern']"><i class="fa-solid fa-xmark"></i> Email is Invalid! </p>
+            </div>
+            <div class="inputContainer">
+                <input formControlName="password" [type]="passwordEye" class="form-control" placeholder="Your Password">
+           
+                <i *ngIf="passwordEye=='text'" (click)="passwordEye='password';" class="fa-solid fa-eye-slash"></i>
+                <i *ngIf="passwordEye=='password'" (click)="passwordEye='text';"
+                 class="fa-solid fa-eye"></i>
+            </div>
+            <div *ngIf="LoginForm.get('password')?.errors&&
+            LoginForm.get('password')?.touched" class="my-3 alert alert-danger">
+                    <p *ngIf="LoginForm.get('password')?.errors?.['required']"><i class="fa-solid fa-xmark"></i> Password is required</p>
+                    <p *ngIf="LoginForm.get('password')?.errors?.['pattern']"><i class="fa-solid fa-xmark"></i> password should
+                        contain at least 5 characters and should be
+                        8 to 15 as length
+                     </p>
+                </div>
+     
+        </div>
+        
+        
+        <div class="text-center my-5">
+            <button type="submit" [disabled]="LoginForm.status=='INVALID'" class="btn btn-outline-light">Sign In <i class="fa-solid fa-user
+                mx-2"></i></button>
+        </div>
+        <div *ngIf="message"  class="alert loginMessage" 
+        [ngClass]="{'alert-success':message=='success'
+        ,'alert-danger':message!='success'}">
+            <i class="fa-solid"  [ngClass]="{'fa-check':message=='success'
+            ,'fa-xmark':message!='success'}"></i> {{message}}
+           </div> 
+    </form>
+</div>

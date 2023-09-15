@@ -1,0 +1,107 @@
+<div class="mx-auto formContainer register my-5 p-5">
+    <h3 class="text-center">Create an account</h3>
+    <form [formGroup]="RegistrationForm" (ngSubmit)="applyRegister(RegistrationForm.value)" class="registerForm p-3">
+        <div class="mx-auto px-3">
+         <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+                <div class="inputContainer">
+
+                    <input formControlName="first_name" type="text" class="form-control" placeholder="Your First Name">
+    
+                    <i class="fa-solid fa-signature"></i>
+                </div>
+              
+            </div>
+            <div class="col-md-6">
+                <div class="inputContainer">
+
+                    <input formControlName="last_name" type="text" class="form-control" placeholder="Your Last Name">
+    
+                    <i class="fa-solid fa-signature"></i>
+                </div>
+              
+            </div>
+         </div>
+         <div>
+            <div *ngIf="RegistrationForm.get('first_name')?.errors&&
+           RegistrationForm.get('first_name')?.touched" class="my-3 alert alert-danger">
+                <p *ngIf="RegistrationForm.get('first_name')?.errors?.['required']"><i class="fa-solid fa-xmark"></i> first name is required!</p>
+                <p *ngIf="RegistrationForm.get('first_name')?.errors?.['pattern']"><i class="fa-solid fa-xmark"></i> first name should contain
+                    characters only
+                    and it's length should be
+                    4 to 10 as length! </p>
+            </div>
+        </div>
+        <div>
+            <div *ngIf="RegistrationForm.get('last_name')?.errors&&
+           RegistrationForm.get('last_name')?.touched" class="my-3 alert alert-danger">
+                <p *ngIf="RegistrationForm.get('last_name')?.errors?.['required']"><i class="fa-solid fa-xmark"></i> last name is required!</p>
+                <p *ngIf="RegistrationForm.get('last_name')?.errors?.['pattern']"><i class="fa-solid fa-xmark"></i> last name should contain
+                    characters only
+                    and it's length should be
+                    4 to 10 as length! </p>
+            </div>
+        </div>
+          
+            <div class="inputContainer">
+                <input formControlName="email" type="text" class="form-control" placeholder="Your Email">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div *ngIf="RegistrationForm.get('email')?.errors&&
+        RegistrationForm.get('email')?.touched" class="my-3 alert alert-danger">
+                <p *ngIf="RegistrationForm.get('email')?.errors?.['required']"><i class="fa-solid fa-xmark"></i> Email is required!</p>
+                <p *ngIf="RegistrationForm.get('email')?.errors?.['pattern']"><i class="fa-solid fa-xmark"></i> Email is Invalid! </p>
+            </div>
+            <div class="inputContainer">
+                <input [type]="passwordEye" formControlName="password" class="form-control" placeholder="Your Password">
+           
+                <i *ngIf="passwordEye=='text'" (click)="passwordEye='password';" 
+                class="fa-solid fa-eye-slash"></i>
+                <i *ngIf="passwordEye=='password'" (click)="passwordEye='text';"
+                 class="fa-solid fa-eye"></i>
+            
+            </div>          
+            <div *ngIf="RegistrationForm.get('password')?.errors&&
+            RegistrationForm.get('password')?.touched" class="my-3 alert alert-danger">
+               <p *ngIf="RegistrationForm.get('password')?.errors?.['required']"><i class="fa-solid fa-xmark"></i> password is required!</p>
+               <p *ngIf="RegistrationForm.get('password')?.errors?.['pattern']"><i class="fa-solid fa-xmark"></i> password should
+                  contain at least 5 characters and should be
+                  8 to 15 as length!
+               </p>
+            </div>
+            
+            <div class="inputContainer">
+                <input formControlName="age" type="number" class="form-control" placeholder="Your age">
+                <i class="fa-solid fa-hashtag"></i>
+
+            </div>
+            <div *ngIf="RegistrationForm.get('age')?.errors&&
+            RegistrationForm.get('age')?.touched" class="my-3 alert alert-danger">
+                <p *ngIf="RegistrationForm.get('age')?.errors?.['required']"><i class="fa-solid fa-xmark"></i> age is required!</p>
+                <p *ngIf="RegistrationForm.get('age')?.errors?.['min']"><i class="fa-solid fa-xmark"></i> age should
+                    be 20 as minimum! </p>
+                 <p *ngIf="RegistrationForm.get('age')?.errors?.['max']"><i class="fa-solid fa-xmark"></i> age should
+                    be 80 as maximum! </p>
+       
+
+            </div>
+          
+            <div class="text-center">
+                <button [disabled]="RegistrationForm.status=='INVALID'" type="submit"
+                    class="btn btn-outline-light my-2"> Sign
+                    Up <i class="fa-solid fa-user-plus mx-2"></i></button>
+            </div>
+         
+            <div *ngIf="message"  class="alert registerMessage" 
+            [ngClass]="{'alert-success':message=='success'
+            ,'alert-danger':message!='success'}">
+                <i class="fa-solid"  [ngClass]="{'fa-check':message=='success'
+                ,'fa-xmark':message!='success'}"></i> {{message}}
+               </div> 
+        </div>
+
+
+    </form>
+    
+
+</div>

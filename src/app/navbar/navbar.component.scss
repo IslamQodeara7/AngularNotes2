@@ -1,0 +1,31 @@
+$mainColor1:#fff5e0;
+$mainColor2:#ff6969;
+$mainColor3:#bb2525;
+$mainColor4:#141e46;
+
+
+.navbar{
+    background-color: $mainColor4;
+    .nav-link{
+        color: $mainColor2;
+        transition: all 1s;
+        cursor: pointer;
+        &:hover{
+            color: $mainColor3;
+        }
+    }
+    .navbar-brand{
+        color: $mainColor2;
+        cursor: pointer;
+        text-align: center;
+        div{
+           a{
+            font-size: 12px;
+           } 
+        }
+    }
+}
+
+.activeLink{
+    color: $mainColor3 !important;
+}

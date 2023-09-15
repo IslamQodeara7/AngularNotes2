@@ -1,0 +1,44 @@
+$mainColor1:#fff5e0;
+$mainColor2:#ff6969;
+$mainColor3:#bb2525;
+$mainColor4:#141e46;
+
+.notesItems .item{
+    border-radius: 0px 50px;
+    height: 300px;
+    overflow: auto;
+    box-shadow: 20px 20px 10px $mainColor4;
+    h2{
+        color: $mainColor4;
+    }  
+}
+
+.heartPulses{
+    
+    i{
+        font-size: 50px;
+        color: $mainColor4;
+
+    }
+    .bloodline{
+        background-color: $mainColor4;
+        border-radius: 0px 20px;
+        height: 10px;
+    }
+  
+}
+
+.modal-footer{
+    button{
+        color: $mainColor4 !important;
+        transition: all .5s;
+        &:hover{
+            color: $mainColor1 !important;
+            background-color: $mainColor4 !important;
+        }
+    }
+
+}
+
+
+

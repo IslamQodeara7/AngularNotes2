@@ -1,0 +1,46 @@
+
+$mainColor1:#fff5e0;
+$mainColor2:#ff6969;
+$mainColor3:#bb2525;
+$mainColor4:#141e46;
+footer{
+    background-color: $mainColor4;
+}
+
+footer h1 {
+    color: $mainColor2;
+}
+
+footer .contactLinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .contactLinks a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid $mainColor2;
+    text-decoration: none;
+    color: $mainColor2;
+    margin: 20px 5px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all .5s;
+}
+
+footer .contactLinks a:hover {
+    color: $mainColor3;
+    border-color: $mainColor3;
+}
+
+footer .myNumbers {
+    color: $mainColor2;
+}
+
+footer .contactLinks a i {
+    font-size: 25px;
+}

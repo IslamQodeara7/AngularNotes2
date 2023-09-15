@@ -1,0 +1,76 @@
+<div class="container mx-auto">
+    <!-- Button trigger modal -->
+<button (click)=" this.emptyNote=false;
+this.successNote=false;add=true;update=false;"  type="button" class="btn
+d-flex justify-content-center align-items-center btn-success my-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <i class="fa-solid fa-plus"></i>
+  </button>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         
+          <input   type="text"  class="form-control my-3 title" placeholder="title">
+          <input  type="text"  class="form-control my-3 desc" placeholder="description">
+          <div *ngIf="emptyNote" class="alert alert-danger">
+            you can't add empty notes
+          </div>
+          <div *ngIf="successNote" class="alert alert-success">
+            note added successfully
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button *ngIf="add" (click)="addingNotes()" type="button" class="btn btn-danger">Add</button>
+          <button *ngIf="update" (click)="updatingNotes2()" type="button" class="btn btn-warning">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="appeare" class=" row notesItems position-relative">
+    <div  *ngFor="let note of notesArr; let iterator=index" class="col-lg-4 p-3 col-md-6">
+      <div class="item bg-light text-danger p-5 text-center my-2 position-relative">
+      <div class="heartPulses mb-3">
+ 
+       <div>
+        <i class="fa-solid fa-cloud-bolt"></i>
+       </div>
+        <div class="bloodline mt-2"></div>
+      </div>
+        <div style="bottom: 10%; left: 10%;" class=" position-absolute dropup-center dropup">
+          <button style="border: none; outline: none; background-color: transparent;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i *ngIf="appeare"  class="text-danger fa-solid fa-ellipsis-vertical"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li  data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="
+            this.emptyNote=false;
+            this.successNote=false;add=false;update=true;updatingNotes1(iterator)" 
+            style="cursor: pointer;" class="text-warning text-center">Update
+            <i class="fa-solid fa-pen-to-square mx-2"></i>
+            </li>
+            <hr>
+            <li (click)="deletingNotes(iterator)" style="cursor: pointer;" class="text-danger text-center">Delete
+              <i class="fa-solid fa-xmark mx-2"></i>
+            </li>
+
+          </ul>
+        </div>
+      
+        <h2>{{note.title}}</h2>
+        <div>
+          {{note.desc}}
+          
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,129 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "pa";
+    src: url("assets/Pacifico\ Regular.ttf");
+}
+$mainColor1:#fff5e0;
+$mainColor2:#ff6969;
+$mainColor3:#bb2525;
+$mainColor4:#141e46;
+
+
+body{
+    background-image: linear-gradient($mainColor2,$mainColor3,$mainColor2);
+    font-family: "pa";
+    overflow-x: hidden !important;
+}
+input::placeholder{
+    color: $mainColor4;
+}
+.inputContainer{
+    position: relative;
+    background-color: $mainColor1;
+    color: $mainColor3;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px auto;
+
+}
+.inputContainer input,.inputContainer select{
+    border: none !important;
+    color: $mainColor3 !important;
+    outline-color: $mainColor1 !important;
+    background-color: $mainColor1;
+}
+
+.inputContainer input:focus,.inputContainer select:focus{
+    border: none !important;
+    outline:5px solid $mainColor1 !important;
+    background-color: $mainColor1;
+}
+.inputContainer i{
+    font-size: 20px;
+}
+h3{
+    color: $mainColor3;
+}
+
+form::after,form::before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    
+}
+// form::before{
+//     top: 0;
+//     left: 0;
+//     border-top: 5px solid $mainColor3;
+//     border-left: 5px solid $mainColor3;
+//     animation: upper 1s infinite;
+// }
+// form::after{
+//     bottom: 0;
+//     right: 0;
+//     border-bottom: 5px solid $mainColor3;
+//     border-right: 5px solid $mainColor3;
+//     animation: lower 1s infinite;
+// }
+
+form{
+    width: 40%;
+    margin: auto;
+    position: relative;
+}
+
+.fa-eye,.fa-eye-slash{
+    cursor: pointer;
+}
+@media screen and (max-width:1024px) {
+    form{
+        width: 100%;
+    }
+}
+
+@keyframes upper {
+    0%{
+        transform: translate(0px,0px);
+        opacity: 1;
+    }
+    50%{
+        transform: translate(-5px,-5px);
+        opacity: .5;
+    }
+    100%{
+        transform: translate(-10px,-10px);
+        opacity: 0;
+    }
+}
+@keyframes lower {
+    0%{
+        transform: translate(0px,0px);
+        opacity: 1;
+    }
+    50%{
+        transform: translate(5px,5px);
+        opacity: .5;
+    }
+    100%{
+        transform: translate(10px,10px);
+        opacity: 0;
+    }
+}
+
+table th{
+    color: #fff;
+}
+
+button{
+    border-color: $mainColor1 !important;
+    color: $mainColor1 !important;
+    background-color: transparent !important;
+}
+
+button:hover{
+    color: $mainColor2 !important;
+    background-color: $mainColor1 !important;
+}
